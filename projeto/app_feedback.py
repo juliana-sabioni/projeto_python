@@ -9,9 +9,9 @@ def add_feedback():
     feedback = feedback_entry.get("1.0", END).strip()
     if feedback:
         new_row = {
-            'employee_id': len(df) + 1,
-            'date': datetime.now().strftime('%Y-%m-%d'),
-            'feedback': feedback
+            'Projeto': len(df) + 1,
+            'Data': datetime.now().strftime('%Y-%m-%d'),
+            'Feedback': feedback
         }
         df = pd.concat([df, pd.DataFrame([new_row])], ignore_index=True)
         df.to_excel('feedbacks.xlsx', index=False)  # Salvar imediatamente em Excel
@@ -25,7 +25,7 @@ def add_feedback():
 try:
     df = pd.read_excel('feedbacks.xlsx')
 except FileNotFoundError:
-    df = pd.DataFrame(columns=['employee_id', 'date', 'feedback'])
+    df = pd.DataFrame(columns=['Projeto', 'Data', 'Feedback'])
 
 
 # Interface gráfica com tkinter
@@ -42,3 +42,5 @@ Button(root, text="Adicionar Feedback", command=add_feedback).pack()
 
 
 root.mainloop()
+
+
