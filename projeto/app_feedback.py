@@ -23,7 +23,6 @@ def add_feedback():
    
     if feedback:
         new_row = {
-            'employee_id': len(df) + 1,
             'date': datetime.now().strftime('%Y-%m-%d'),
             'feedback': feedback,
             'suggestion': suggestion
@@ -107,7 +106,7 @@ def format_excel(input_filename, output_filename):
 try:
     df = pd.read_excel('feedbacks.xlsx')
 except FileNotFoundError:
-    df = pd.DataFrame(columns=['employee_id', 'date', 'feedback', 'suggestion'])
+    df = pd.DataFrame(columns=['date', 'feedback', 'suggestion'])
 
 
 
